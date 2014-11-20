@@ -29,8 +29,11 @@ command_message: '&aTeleporting to the hub...'
 # This message is used to tell the player that he is already on a hub, including listed and prefix ones.
 already_connected_message: '&cYou are already connected to a hub!'
 
+# This message is used to tell the player that he cant connect to that server.
+cant_connect: '&cYou cant connect to this server, try it again!'
+
 # This message is used to tell the player that he has entered on a hub, including listed and prefix ones.
-joinmessage: true
+join_message_enabled: true
 
 # You can use %servername% to replace it with the name of the server.
-joinmessagestring: '&aYou have entered %servername%'
+join_message_string: '&aYou have entered %servername%'

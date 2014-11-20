@@ -18,12 +18,13 @@ public class RHConfig {
         this.plugin = plugin;
     }
 
-    public void loadConfig() {
+    public void load() throws IOException {
         try {
             config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(plugin.getDataFolder(), "config.yml"));
         } catch (IOException e) {
             plugin.printInfo(Level.SEVERE, "An error occurred while loading the config");
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -37,6 +38,14 @@ public class RHConfig {
 
     public String getPrefix() {
         return config.getString("prefix_label");
+    }
+
+    public boolean isCommandEnabled() {
+        return config.getBoolean("command_enabled");
+    }
+
+    public String getCommand() {
+        return config.getString("command_label");
     }
 
     public boolean isCommandPermissionEnabled() {
@@ -63,6 +72,9 @@ public class RHConfig {
         return config.getString("already_connected_message");
     }
 
+    public String getCantConnectMessage() {
+        return config.getString("cant_connect");
+    }
     public boolean isJoinMessageEnabled() {
         return config.getBoolean("join_message_enabled");
     }
