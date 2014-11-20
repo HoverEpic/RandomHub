@@ -25,5 +25,8 @@
         <module name="RandomHub" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RandomHub" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
