@@ -12,7 +12,7 @@ import net.md_5.bungee.api.plugin.Command;
 import java.io.IOException;
 
 public class RHCommand extends Command {
-    private RHPlugin plugin;
+    RHPlugin plugin;
 
     public RHCommand(RHPlugin plugin) {
         super("randomhub");
@@ -38,13 +38,8 @@ public class RHCommand extends Command {
             } else {
                 if (args[0].equalsIgnoreCase("reload")) {
                     if (sender.hasPermission("randomhub.reload")) {
-                        try {
-                            plugin.getConfig().load();
-                            sender.sendMessage(new ComponentBuilder("RandomHub was successfully reloaded!").color(ChatColor.GREEN).create());
-                        } catch (IOException e) {
-                            sender.sendMessage(new ComponentBuilder("Error trying to read the config file, send this error to the creator.").color(ChatColor.RED).create());
-                        }
                         plugin.reloadPlugin();
+                        sender.sendMessage(new ComponentBuilder("RandomHub was successfully reloaded!").color(ChatColor.GREEN).create());
                     } else {
                         sender.sendMessage(new ComponentBuilder("You do not have permission to execute this command!").color(ChatColor.RED).create());
                     }

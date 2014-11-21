@@ -1,0 +1,8 @@
+*.class
+target/
+.settings/
+.idea/
+.classpath
+.project
+# Package Files #
+*.iml

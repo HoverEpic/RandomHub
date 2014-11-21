@@ -1,4 +1,4 @@
-name: ${project.name}
+name: RandomHub
 main: me.jaime29010.randomhub.RHPlugin
 version: ${project.version}
 author: jaime29010

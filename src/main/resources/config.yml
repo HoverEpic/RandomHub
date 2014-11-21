@@ -8,15 +8,14 @@ servers_list:
 
 # The prefix, if this is enabled, it will add all the servers it finds to a internal list, without putting the names on the list.
 prefix_enabled: false
-prefix_string: Hub
+prefix_label: 'Hub'
 
 # The command to connect to a random hub, with custom label and permission, requires reload to update.
 command_enabled: true
-command_label: hub
+command_label: 'hub'
 
-# If you want that only some users use this command, you can use this, requires reload to update.
-command_permission_enabled: false
-command_permission_string: randomhub.command.hub
+# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, leave it blank.
+command_permission: ''
 
 # If you want more than one command, you can put more here, requires reload to update.
 command_aliases:
