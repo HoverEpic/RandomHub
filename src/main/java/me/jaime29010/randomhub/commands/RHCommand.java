@@ -9,8 +9,6 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Command;
 
-import java.io.IOException;
-
 public class RHCommand extends Command {
     RHPlugin plugin;
 

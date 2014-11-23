@@ -8,13 +8,16 @@ servers_list:
 
 # The prefix, if this is enabled, it will add all the servers it finds to a internal list, without putting the names on the list.
 prefix_enabled: false
-prefix_label: 'Hub'
+prefix: 'Hub'
 
 # The command to connect to a random hub, with custom label and permission, requires reload to update.
 command_enabled: true
-command_label: 'hub'
+command: 'hub'
 
-# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, leave it blank.
+# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, disable it..
+command_permission_enabled: false
+
+# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, disable it..
 command_permission: ''
 
 # If you want more than one command, you can put more here, requires reload to update.
@@ -29,10 +32,10 @@ command_message: '&aTeleporting to the hub...'
 already_connected_message: '&cYou are already connected to a hub!'
 
 # This message is used to tell the player that he cant connect to that server.
-cant_connect: '&cYou cant connect to this server, try it again!'
+cant_connect_message: '&cYou cant connect to this server, try it again!'
 
 # This message is used to tell the player that he has entered on a hub, including listed and prefix ones.
 join_message_enabled: true
 
 # You can use %servername% to replace it with the name of the server.
-join_message_string: '&aYou have entered %servername%'
+join_message: '&aYou have entered %servername%'

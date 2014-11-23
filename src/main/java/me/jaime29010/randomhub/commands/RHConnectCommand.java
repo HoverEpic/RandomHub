@@ -9,11 +9,10 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
 public class RHConnectCommand extends Command {
-
     RHPlugin plugin;
 
     public RHConnectCommand(RHPlugin plugin) {
-        super(plugin.getConfig().getString("command"), plugin.getConfig().getString("command_permission"), plugin.getAliases());
+        super(plugin.getConfigGetter().getCommand(), plugin.getConfigGetter().getPermission(), plugin.getConfigGetter().getCommandAliases());
         this.plugin = plugin;
     }
 
@@ -23,10 +22,10 @@ public class RHConnectCommand extends Command {
             ProxiedPlayer player = (ProxiedPlayer) sender;
             if (!plugin.getServersList().contains(player.getServer().getInfo().getName())) {
                 ServerInfo target = plugin.getRandomServer();
-                sender.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("command_message").replaceAll("%servername%", target.getName()))).create());
+                sender.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfigGetter().getCommandMessage().replaceAll("%servername%", target.getName()))).create());
                 player.connect(target);
             } else {
-                sender.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("already_connected_message"))).create());
+                sender.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfigGetter().getAlreadyConnectedMessage())).create());
             }
         } else {
             sender.sendMessage(new ComponentBuilder("This command can only be run by a player, you are a console.").color(ChatColor.RED).create());

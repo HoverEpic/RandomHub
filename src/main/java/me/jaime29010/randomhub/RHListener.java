@@ -29,7 +29,7 @@ public class RHListener implements Listener {
                         plugin.printInfo(Level.SEVERE, "The plugin failed, that is because you have put servers that are offline on the config.");
                     }
                 } else {
-                    event.getPlayer().sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("cant_connect_message"))).color(ChatColor.RED).create());
+                    event.getPlayer().sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfigGetter().getCantConnectMessage())).color(ChatColor.RED).create());
                 }
             }
         }
@@ -37,8 +37,8 @@ public class RHListener implements Listener {
 
     @EventHandler
     public void onServerConnected(ServerConnectedEvent event) {
-        if (plugin.getConfig().getBoolean("join_message_enabled") && plugin.getServersList().contains(event.getServer().getInfo().getName())) {
-            event.getPlayer().sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("join_message").replaceAll("%servername%", event.getServer().getInfo().getName()))).create());
+        if (plugin.getConfigGetter().isJoinMessageEnabled() && plugin.getServersList().contains(event.getServer().getInfo().getName())) {
+            event.getPlayer().sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', plugin.getConfigGetter().getJoinMessage().replaceAll("%servername%", event.getServer().getInfo().getName()))).create());
         }
     }
 }

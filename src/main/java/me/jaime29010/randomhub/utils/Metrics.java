@@ -29,7 +29,7 @@ package me.jaime29010.randomhub.utils;
  */
 
 /*
- * Credit to geNAZt by fixing the java.security.AccessControlException of Metrics.
+ * Credit to geNAZt for fixing the java.security.AccessControlException of Metrics.
  * Available at https://github.com/Cube-Space/Yamler/issues/4
  */
 
