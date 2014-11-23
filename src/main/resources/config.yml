@@ -1,41 +1,439 @@
-# You can use colors, listed at http://ess.khhq.net/mc/ Dont forget to submit issues or suggestions.
+# Build #
+#########
+MANIFEST.MF
+dependency-reduced-pom.xml
+.checkstyle
 
-# The servers to listen.
-servers_list:
-- Hub1
-- Hub2
-- Hub3
+# Compiled #
+############
+bin
+build
+dist
+lib
+out
+run
+target
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# The prefix, if this is enabled, it will add all the servers it finds to a internal list, without putting the names on the list.
-prefix_enabled: false
-prefix: 'Hub'
+# Databases #
+#############
+*.db
+*.sql
+*.sqlite
 
-# The command to connect to a random hub, with custom label and permission, requires reload to update.
-command_enabled: true
-command: 'hub'
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
 
-# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, disable it..
-command_permission_enabled: false
+# Repository #
+##############
+.git
 
-# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, disable it..
-command_permission: ''
+# Logging #
+###########
+/logs
+*.log
 
-# If you want more than one command, you can put more here, requires reload to update.
-command_aliases:
-- lobby
-- central
+# Misc #
+########
+*.bak
 
-# The message for the command, you can use %servername% to replace it with the name of the server.
-command_message: '&aTeleporting to the hub...'
+# System #
+##########
+.DS_Store
+ehthumbs.db
+Thumbs.db
 
-# This message is used to tell the player that he is already on a hub, including listed and prefix ones.
-already_connected_message: '&cYou are already connected to a hub!'
+# Project #
+###########
+.classpath
+.externalToolBuilders
+.gradle
+.nb-gradle
+.idea
+.project
+.settings
+eclipse
+nbproject
+atlassian-ide-plugin.xml
+build.xml
+nb-configuration.xml
+*.iml
+*.ipr
+*.iws
+# Build #
+     #########
+     MANIFEST.MF
+     dependency-reduced-pom.xml
+     .checkstyle
 
-# This message is used to tell the player that he cant connect to that server.
-cant_connect_message: '&cYou cant connect to this server, try it again!'
+     # Compiled #
+     ############
+     bin
+     build
+     dist
+     lib
+     out
+     run
+     target
+     *.com
+     *.class
+     *.dll
+     *.exe
+     *.o
+     *.so
 
-# This message is used to tell the player that he has entered on a hub, including listed and prefix ones.
-join_message_enabled: true
+     # Databases #
+     #############
+     *.db
+     *.sql
+     *.sqlite
 
-# You can use %servername% to replace it with the name of the server.
-join_message: '&aYou have entered %servername%'
+     # Packages #
+     ############
+     *.7z
+     *.dmg
+     *.gz
+     *.iso
+     *.rar
+     *.tar
+     *.zip
+
+     # Repository #
+     ##############
+     .git
+
+     # Logging #
+     ###########
+     /logs
+     *.log
+
+     # Misc #
+     ########
+     *.bak
+
+     # System #
+     ##########
+     .DS_Store
+     ehthumbs.db
+     Thumbs.db
+
+     # Project #
+     ###########
+     .classpath
+     .externalToolBuilders
+     .gradle
+     .nb-gradle
+     .idea
+     .project
+     .settings
+     eclipse
+     nbproject
+     atlassian-ide-plugin.xml
+     build.xml
+     nb-configuration.xml
+     *.iml
+     *.ipr
+     *.iws# Build # #########
+          MANIFEST.MF
+          dependency-reduced-pom.xml
+          .checkstyle
+
+          # Compiled #
+          ############
+          bin
+          build
+          dist
+          lib
+          out
+          run
+          target
+          *.com
+          *.class
+          *.dll
+          *.exe
+          *.o
+          *.so
+
+          # Databases #
+          #############
+          *.db
+          *.sql
+          *.sqlite
+
+          # Packages #
+          ############
+          *.7z
+          *.dmg
+          *.gz
+          *.iso
+          *.rar
+          *.tar
+          *.zip
+
+          # Repository #
+          ##############
+          .git
+
+          # Logging #
+          ###########
+          /logs
+          *.log
+
+          # Misc #
+          ########
+          *.bak
+
+          # System #
+          ##########
+          .DS_Store
+          ehthumbs.db
+          Thumbs.db
+
+          # Project #
+          ###########
+          .classpath
+          .externalToolBuilders
+          .gradle
+          .nb-gradle
+          .idea
+          .project
+          .settings
+          eclipse
+          nbproject
+          atlassian-ide-plugin.xml
+          build.xml
+          nb-configuration.xml
+          *.iml
+          *.ipr
+          *.iws# Build #
+               #########
+               MANIFEST.MF
+               dependency-reduced-pom.xml
+               .checkstyle
+
+               # Compiled #
+               ############
+               bin
+               build
+               dist
+               lib
+               out
+               run
+               target
+               *.com
+               *.class
+               *.dll
+               *.exe
+               *.o
+               *.so
+
+               # Databases #
+               #############
+               *.db
+               *.sql
+               *.sqlite
+
+               # Packages #
+               ############
+               *.7z
+               *.dmg
+               *.gz
+               *.iso
+               *.rar
+               *.tar
+               *.zip
+
+               # Repository #
+               ##############
+               .git
+
+               # Logging #
+               ###########
+               /logs
+               *.log
+
+               # Misc #
+               ########
+               *.bak
+
+               # System #
+               ##########
+               .DS_Store
+               ehthumbs.db
+               Thumbs.db
+
+               # Project #
+               ###########
+               .classpath
+               .externalToolBuilders
+               .gradle
+               .nb-gradle
+               .idea
+               .project
+               .settings
+               eclipse
+               nbproject
+               atlassian-ide-plugin.xml
+               build.xml
+               nb-configuration.xml
+               *.iml
+               *.ipr
+               *.iws# Build #
+                    #########
+                    MANIFEST.MF
+                    dependency-reduced-pom.xml
+                    .checkstyle
+
+                    # Compiled #
+                    ############
+                    bin
+                    build
+                    dist
+                    lib
+                    out
+                    run
+                    target
+                    *.com
+                    *.class
+                    *.dll
+                    *.exe
+                    *.o
+                    *.so
+
+                    # Databases #
+                    #############
+                    *.db
+                    *.sql
+                    *.sqlite
+
+                    # Packages #
+                    ############
+                    *.7z
+                    *.dmg
+                    *.gz
+                    *.iso
+                    *.rar
+                    *.tar
+                    *.zip
+
+                    # Repository #
+                    ##############
+                    .git
+
+                    # Logging #
+                    ###########
+                    /logs
+                    *.log
+
+                    # Misc #
+                    ########
+                    *.bak
+
+                    # System #
+                    ##########
+                    .DS_Store
+                    ehthumbs.db
+                    Thumbs.db
+
+                    # Project #
+                    ###########
+                    .classpath
+                    .externalToolBuilders
+                    .gradle
+                    .nb-gradle
+                    .idea
+                    .project
+                    .settings
+                    eclipse
+                    nbproject
+                    atlassian-ide-plugin.xml
+                    build.xml
+                    nb-configuration.xml
+                    *.iml
+                    *.ipr
+                    *.iws# Build #
+                         #########
+                         MANIFEST.MF
+                         dependency-reduced-pom.xml
+                         .checkstyle
+
+                         # Compiled #
+                         ############
+                         bin
+                         build
+                         dist
+                         lib
+                         out
+                         run
+                         target
+                         *.com
+                         *.class
+                         *.dll
+                         *.exe
+                         *.o
+                         *.so
+
+                         # Databases #
+                         #############
+                         *.db
+                         *.sql
+                         *.sqlite
+
+                         # Packages #
+                         ############
+                         *.7z
+                         *.dmg
+                         *.gz
+                         *.iso
+                         *.rar
+                         *.tar
+                         *.zip
+
+                         # Repository #
+                         ##############
+                         .git
+
+                         # Logging #
+                         ###########
+                         /logs
+                         *.log
+
+                         # Misc #
+                         ########
+                         *.bak
+
+                         # System #
+                         ##########
+                         .DS_Store
+                         ehthumbs.db
+                         Thumbs.db
+
+                         # Project #
+                         ###########
+                         .classpath
+                         .externalToolBuilders
+                         .gradle
+                         .nb-gradle
+                         .idea
+                         .project
+                         .settings
+                         eclipse
+                         nbproject
+                         atlassian-ide-plugin.xml
+                         build.xml
+                         nb-configuration.xml
+                         *.iml
+                         *.ipr
+                         *.iwsv
