@@ -3,7 +3,6 @@ package me.jaime29010.randomhub;
 import java.util.List;
 
 public class RHConfig {
-
     RHPlugin plugin;
 
     public RHConfig(RHPlugin plugin) {
