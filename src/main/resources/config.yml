@@ -14,10 +14,8 @@ prefix: 'Hub'
 command_enabled: true
 command: 'hub'
 
-# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, disable it..
+# If you want that only some users use this command, you can use this, requires reload to update.
 command_permission_enabled: false
-
-# If you want that only some users use this command, you can use this, requires reload to update, if you dont want to use it, disable it..
 command_permission: 'randomhub.command.connect'
 
 # If you want more than one command, you can put more here, requires reload to update.
