@@ -17,7 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-public class RHPlugin extends Plugin {
+public class RHPlugin extends Plugin
+{
 
     ArrayList<String> servers = new ArrayList<>();
 
@@ -27,7 +28,8 @@ public class RHPlugin extends Plugin {
     Configuration configInstance;
 
     @Override
-    public void onEnable() {
+    public void onEnable()
+    {
         loadConfig("config.yml");
 
         configGetter = new RHConfig(this);
@@ -38,7 +40,8 @@ public class RHPlugin extends Plugin {
         getProxy().getPluginManager().registerListener(this, new RHListener(this));
         getProxy().getPluginManager().registerCommand(this, new RHCommand(this));
 
-        if(getConfigGetter().isCommandEnabled()) {
+        if (getConfigGetter().isCommandEnabled())
+        {
             getProxy().getPluginManager().registerCommand(this, connectCommand);
         }
 
@@ -46,87 +49,111 @@ public class RHPlugin extends Plugin {
     }
 
     @Override
-    public void onDisable() {
+    public void onDisable()
+    {
         configInstance = null;
         configGetter = null;
         connectCommand = null;
     }
 
-    public void loadConfig(String resource) {
-        if (!getDataFolder().exists()) {
+    public void loadConfig(String resource)
+    {
+        if (!getDataFolder().exists())
+        {
             getDataFolder().mkdir();
         }
 
         File file = new File(getDataFolder(), resource);
 
-        if (!file.exists()) {
-            try {
+        if (!file.exists())
+        {
+            try
+            {
                 Files.copy(getResourceAsStream(resource), file.toPath());
-            } catch (IOException e) {
+            } catch (IOException e)
+            {
                 e.printStackTrace();
             }
         }
 
-        try {
+        try
+        {
             configInstance = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), resource));
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             printInfo(Level.SEVERE, "An error occurred while loading the config");
             e.printStackTrace();
         }
     }
 
-    public void reloadPlugin() {
-        if(getConfigGetter().isCommandEnabled()) {
+    public void reloadPlugin()
+    {
+        if (getConfigGetter().isCommandEnabled())
+        {
             getProxy().getPluginManager().unregisterCommand(connectCommand);
         }
 
         loadConfig("config.yml");
 
-        if(getConfigGetter().isCommandEnabled()) {
+        if (getConfigGetter().isCommandEnabled())
+        {
             getProxy().getPluginManager().registerCommand(this, connectCommand);
         }
 
         listServers();
     }
 
-    public void startMetrics() {
-        try {
+    public void startMetrics()
+    {
+        try
+        {
             Metrics metrics = new Metrics(this);
             metrics.start();
             printInfo(Level.INFO, "Metrics was successfully enabled");
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             printInfo(Level.SEVERE, "An error occurred while enabling Metrics");
             e.getStackTrace();
         }
     }
 
-    public Configuration getConfigInstance() {
+    public Configuration getConfigInstance()
+    {
         return configInstance;
     }
 
-    public RHConfig getConfigGetter() {
+    public RHConfig getConfigGetter()
+    {
         return configGetter;
     }
 
-    public ServerInfo getRandomServer() {
+    public ServerInfo getRandomServer()
+    {
         return getProxy().getServerInfo(getServersList().get(new SecureRandom().nextInt(getServersList().size())));
     }
 
-    public List<String> getServersList() {
+    public List<String> getServersList()
+    {
         return servers;
     }
 
-    public void listServers() {
+    public void listServers()
+    {
         servers.clear();
 
         servers.addAll(getConfigGetter().getServersList());
 
-        if(getConfigGetter().isPrefixEnabled()) {
-            for(ServerInfo server : getProxy().getServers().values()) {
-                if(server.getName().startsWith(getConfigGetter().getPrefix())) {
-                    if(servers.contains(server.getName())) {
+        if (getConfigGetter().isPrefixEnabled())
+        {
+            for (ServerInfo server : getProxy().getServers().values())
+            {
+                if (server.getName().startsWith(getConfigGetter().getPrefix()))
+                {
+                    if (servers.contains(server.getName()))
+                    {
                         printInfo(Level.INFO, "Found a server already on the config list (" + server.getName() + "), ignoring it and using the provided one.");
-                    } else  {
+                    } else
+                    {
                         servers.add(server.getName());
                         printInfo(Level.INFO, "Added the server " + server.getName() + " to the internal server list.");
                     }
@@ -137,7 +164,8 @@ public class RHPlugin extends Plugin {
         printInfo(Level.INFO, "Added " + getServersList().size() + " to the servers list.");
     }
 
-    public void printInfo(Level level, String info) {
+    public void printInfo(Level level, String info)
+    {
         getLogger().log(level, info);
     }
 }
