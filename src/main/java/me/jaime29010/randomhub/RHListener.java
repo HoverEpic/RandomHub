@@ -13,6 +13,7 @@ import net.md_5.bungee.event.EventHandler;
 
 import java.util.logging.Level;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.event.ServerKickEvent;
 
 public class RHListener implements Listener
 {
@@ -32,6 +33,24 @@ public class RHListener implements Listener
         {
             //check if the randomhub config contains the target
             if (m_Instance.getServersList().contains(p_Event.getTarget().getName()))
+            {
+                sendPlayerToRandomServer(p_Event);
+
+            } else
+            {
+                p_Event.getPlayer().sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', m_Instance.getConfigGetter().getCantConnectMessage())).color(ChatColor.RED).create());
+            }
+        }
+    }
+    
+    @EventHandler
+    public void onServerKick(ServerKickEvent p_Event)
+    {
+        // check if player is not already connected on a server
+        if ((p_Event.getPlayer().getServer() != null) && !p_Event.isCancelled())
+        {
+            //check if the randomhub config contains the target
+            if (m_Instance.getServersList().contains(p_Event.getKickedFrom().getName()))
             {
                 sendPlayerToRandomServer(p_Event);
 
@@ -85,6 +104,28 @@ public class RHListener implements Listener
                 m_Instance.printInfo(Level.INFO, "Sending player " + p_Event.getPlayer().getName() + " to server " + l_Target.getName());
                 p_Event.setTarget(l_Target);
                 p_Event.setCancelled(false);
+                return;
+            } catch (Exception e)
+            {
+                m_Instance.printInfo(Level.SEVERE, "The plugin failed, that is because you have put servers that are offline on the config.");
+            }
+        }
+        sendPlayerToRandomServer(p_Event);
+    }
+
+    public void sendPlayerToRandomServer(ServerKickEvent p_Event)
+    {
+        ServerInfo l_Target = m_Instance.getRandomServer();
+        if (isAccessible(l_Target, p_Event.getPlayer()))
+        {
+            p_Event.setCancelled(true);
+
+            m_Instance.printInfo(Level.INFO, "Preparing player " + p_Event.getPlayer().getName() + " to be redirect on a random server!");
+
+            try
+            {
+                m_Instance.printInfo(Level.INFO, "Sending player " + p_Event.getPlayer().getName() + " to server " + l_Target.getName());
+                p_Event.setCancelServer(l_Target);
                 return;
             } catch (Exception e)
             {
